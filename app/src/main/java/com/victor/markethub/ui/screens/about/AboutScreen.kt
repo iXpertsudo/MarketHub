@@ -1,5 +1,5 @@
 
-package com.kennedy.markethub.ui.screens.about
+package com.victor.markethub.ui.screens.about
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -18,12 +18,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.victor.markethub.ui.theme.neworange
 import com.victor.markethub.ui.theme.newpink
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AboutScreen(){
+fun AboutScreen(navController: NavHostController){
 
     Column(
         modifier = Modifier.fillMaxSize()
@@ -91,7 +93,5 @@ fun AboutScreen(){
 @Preview(showBackground = true)
 @Composable
 fun AboutScreenPreview(){
-
-    AboutScreen()
-
+    AboutScreen(rememberNavController())
 }

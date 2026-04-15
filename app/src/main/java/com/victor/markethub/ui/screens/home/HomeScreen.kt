@@ -14,12 +14,15 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.ShoppingCart
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -44,12 +47,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.victor.markethub.R
+import com.victor.markethub.navigation.ROUTE_Intent
 import com.victor.markethub.ui.theme.neworange
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(){
+fun HomeScreen(navController: NavHostController){
 
 
     Column(
@@ -106,9 +112,12 @@ fun HomeScreen(){
                 }
 
                 IconButton(
-                    onClick = {}
+                    onClick = {
+                        navController.navigate(ROUTE_Intent)
+
+                    }
                 ) {
-                    Icon(imageVector = Icons.Default.Share,
+                    Icon(imageVector = Icons.Default.ArrowForward,
                         contentDescription = "menu"
 
                     )
@@ -169,6 +178,10 @@ fun HomeScreen(){
 
         ) {
 
+            Spacer(modifier = Modifier.height(20.dp))
+
+
+
             Column() {
 
                 Image(
@@ -184,6 +197,18 @@ fun HomeScreen(){
                     fontWeight = FontWeight.ExtraBold,
                     modifier = Modifier.padding(start = 20.dp),
                     fontStyle = FontStyle.Italic)
+
+                Button(
+                    {},
+                    colors = ButtonDefaults.buttonColors(neworange),
+                    shape = RoundedCornerShape(10.dp),
+
+                    ) {
+                    Text(text = "Shop Now")
+
+                }
+
+
 
 
             }
@@ -207,6 +232,20 @@ fun HomeScreen(){
                     modifier = Modifier.padding(start = 20.dp),
                     fontStyle = FontStyle.Italic)
 
+                Button(
+                    {},
+                    colors = ButtonDefaults.buttonColors(neworange),
+                    shape = RoundedCornerShape(10.dp),
+
+                    ) {
+                    Text(text = "Shop Now")
+
+                }
+
+
+
+
+
 
             }
 
@@ -228,6 +267,18 @@ fun HomeScreen(){
                     modifier = Modifier.padding(start = 20.dp),
                     fontStyle = FontStyle.Italic)
 
+                Button(
+                    {},
+                    colors = ButtonDefaults.buttonColors(neworange),
+                    shape = RoundedCornerShape(10.dp),
+
+                    ) {
+                    Text(text = "Shop Now")
+
+                }
+
+
+
 
             }
 
@@ -252,6 +303,18 @@ fun HomeScreen(){
                     modifier = Modifier.padding(start = 20.dp),
                     fontStyle = FontStyle.Italic)
 
+                Button(
+                    {},
+                    colors = ButtonDefaults.buttonColors(neworange),
+                    shape = RoundedCornerShape(10.dp),
+
+                    ) {
+                    Text(text = "Shop Now")
+
+                }
+
+
+
 
             }
 
@@ -277,6 +340,18 @@ fun HomeScreen(){
                     modifier = Modifier.padding(start = 20.dp),
                     fontStyle = FontStyle.Italic)
 
+                Button(
+                    {},
+                    colors = ButtonDefaults.buttonColors(neworange),
+                    shape = RoundedCornerShape(10.dp),
+
+                    ) {
+                    Text(text = "Shop Now")
+
+                }
+
+
+
 
             }
 
@@ -298,6 +373,18 @@ fun HomeScreen(){
                     fontWeight = FontWeight.ExtraBold,
                     modifier = Modifier.padding(start = 20.dp),
                     fontStyle = FontStyle.Italic)
+
+                Button(
+                    {},
+                    colors = ButtonDefaults.buttonColors(neworange),
+                    shape = RoundedCornerShape(10.dp),
+
+                    ) {
+                    Text(text = "Shop Now")
+
+                }
+
+
 
 
             }
@@ -315,11 +402,16 @@ fun HomeScreen(){
 
         //Row
 
+        Spacer(modifier = Modifier.height(20.dp))
+
         Row(
             modifier = Modifier.padding(start = 20.dp).horizontalScroll(rememberScrollState())
 
         ) {
 
+            Spacer(modifier = Modifier.height(20.dp))
+
+
             Column() {
 
                 Image(
@@ -330,11 +422,20 @@ fun HomeScreen(){
                 )
 
                 Text(
-                    text = "Top Selling Products",
+                    text = "Top Selling Products 2",
                     fontSize = 20.sp,
                     fontWeight = FontWeight.ExtraBold,
                     modifier = Modifier.padding(start = 20.dp),
                     fontStyle = FontStyle.Italic)
+
+                Button(
+                    {},
+                    colors = ButtonDefaults.buttonColors(neworange),
+                    shape = RoundedCornerShape(10.dp),
+
+                    ) {
+                    Text(text = "Shop Now")
+                }
 
 
             }
@@ -451,6 +552,15 @@ fun HomeScreen(){
                     fontStyle = FontStyle.Italic)
 
 
+            }
+
+            Button(
+                {},
+                colors = ButtonDefaults.buttonColors(neworange),
+                shape = RoundedCornerShape(10.dp),
+
+            ) {
+                Text(text = "Shop Now")
             }
 
 
@@ -492,7 +602,7 @@ fun HomeScreen(){
 @Preview (showBackground = true)
 @Composable
 fun HomeScreenPreview(){
-    
-    HomeScreen()
+
+    HomeScreen(rememberNavController())
 
 }

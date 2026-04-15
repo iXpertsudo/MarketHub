@@ -25,11 +25,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.victor.markethub.R
+import com.victor.markethub.navigation.ROUTE_Login
+import com.victor.markethub.navigation.ROUTE_Register
 import com.victor.markethub.ui.theme.neworange
 
 @Composable
-fun OnBoardingScreen(){
+fun OnboardingScreen(navController: NavHostController){
 
 
     Column(
@@ -91,7 +95,9 @@ fun OnBoardingScreen(){
         Spacer(modifier = Modifier.height(20.dp))
 
         Button(
-            {},
+            {
+                navController.navigate(ROUTE_Register)
+            },
             colors = ButtonDefaults.buttonColors(neworange),
             shape = RoundedCornerShape(10.dp),
             modifier = Modifier.width(350.dp)
@@ -125,6 +131,6 @@ fun OnBoardingScreen(){
 @Composable
 fun OnBoardingScreenPreview(){
 
-    OnBoardingScreen()
+    OnboardingScreen(rememberNavController())
 
 }
