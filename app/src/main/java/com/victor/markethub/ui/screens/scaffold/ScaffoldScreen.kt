@@ -34,6 +34,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.victor.markethub.navigation.ROUTE_Home
+import com.victor.markethub.navigation.ROUTE_Splash
+import com.victor.markethub.ui.theme.newOrange2
 import com.victor.markethub.ui.theme.newYellow
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -50,58 +53,59 @@ fun ScaffoldScreen(navController: NavHostController){
         //TopBar
         topBar = {
             TopAppBar(
-                title = { Text("Contact Screen") },
+                title = { Text("Scaffold Screen") },
                 navigationIcon = {
                     IconButton(onClick = { /* Handle back/nav */ }) {
                         Icon(Icons.Default.ArrowBack, contentDescription = "Back")
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = newYellow,
+                    containerColor = newOrange2,
                     titleContentColor = Color.White,
-                    navigationIconContentColor = Color.White
-                )
+                    navigationIconContentColor = Color.White,
+                    actionIconContentColor = Color.White
+
+                ),
+                actions = {
+
+                    IconButton(onClick = { /* Handle back/nav */ }) {
+                        Icon(Icons.Default.ArrowBack, contentDescription = "Back")
+                    }
+                }
             )
         },
 
         //BottomBar
         bottomBar = {
             NavigationBar(
-                containerColor = newYellow
+                containerColor = newOrange2
             ){
                 NavigationBarItem(
-                    icon = { Icon(Icons.Default.Home, contentDescription = "Home") },
-                    label = { Text("Home") },
+                    icon = { Icon(Icons.Default.Home, contentDescription = "Home", tint = Color.White) },
+                    label = { Text("Home", color = Color.White) },
                     selected = selectedIndex == 0,
                     onClick = { selectedIndex = 0
-                        //navController.navigate(ROUT_HOME)
+                        navController.navigate(ROUTE_Home)
                     }
                 )
                 NavigationBarItem(
-                    icon = { Icon(Icons.Default.Favorite, contentDescription = "Favorites") },
-                    label = { Text("Favorites") },
+                    icon = { Icon(Icons.Default.Favorite, contentDescription = "Favorites", tint = Color.White) },
+                    label = { Text("Favorites", color = Color.White) },
                     selected = selectedIndex == 1,
                     onClick = { selectedIndex = 1
                         // navController.navigate(ROUT_HOME)
                     }
                 )
                 NavigationBarItem(
-                    icon = { Icon(Icons.Default.Person, contentDescription = "Profile") },
-                    label = { Text("Profile") },
+                    icon = { Icon(Icons.Default.Person, contentDescription = "Profile", tint = Color.White) },
+                    label = { Text("Profile", color = Color.White) },
                     selected = selectedIndex == 2,
                     onClick = { selectedIndex = 2
                         //  navController.navigate(ROUT_HOME)
                     }
                 )
 
-                NavigationBarItem(
-                    icon = { Icon(Icons.Default.Person, contentDescription = "Profile") },
-                    label = { Text("Profile") },
-                    selected = selectedIndex == 2,
-                    onClick = { selectedIndex = 2
-                        //  navController.navigate(ROUT_HOME)
-                    }
-                )
+                
 
             }
         },
@@ -124,9 +128,6 @@ fun ScaffoldScreen(navController: NavHostController){
 
 
                 //Main Contents of the page
-                Text(text = "Welcome to Homescreen Screen", fontSize = 20.sp)
-                Spacer(modifier = Modifier.height(8.dp))
-                Text("This is where the main content goes.")
 
 
 

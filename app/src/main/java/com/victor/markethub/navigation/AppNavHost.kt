@@ -4,9 +4,11 @@ package com.victor.markethub.navigation
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.victor.markethub.ui.screens.about.AboutScreen
 import com.victor.markethub.ui.screens.auth.LoginScreen
 import com.victor.markethub.ui.screens.auth.RegisterScreen
@@ -14,6 +16,9 @@ import com.victor.markethub.ui.screens.home.HomeScreen
 import com.victor.markethub.ui.screens.Intent.IntentScreen
 import com.victor.markethub.ui.screens.OnBoarding.OnboardingScreen
 import com.victor.markethub.ui.screens.payments.PaymentsScreen
+import com.victor.markethub.ui.screens.products.AddProductScreen
+import com.victor.markethub.ui.screens.products.UpdateProductScreen
+import com.victor.markethub.ui.screens.products.ViewProductScreen
 import com.victor.markethub.ui.screens.scaffold.ScaffoldScreen
 import com.victor.markethub.ui.screens.service.ServiceScreen
 import com.victor.markethub.ui.screens.splash.SplashScreen
@@ -65,6 +70,19 @@ fun AppNavHost(
 
         composable(ROUTE_Scaffold ) {
             ScaffoldScreen(navController)
+        }
+
+
+        composable(ROUTE_ADD_PRODUCT) { AddProductScreen(navController) }
+
+        composable(ROUTE_VIEW_PRODUCTS) { ViewProductScreen(navController) }
+
+        composable(
+            ROUTE_UPDATE_PRODUCT,
+            arguments = listOf(navArgument("productId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val productId = backStackEntry.arguments?.getString("productId")!!
+            UpdateProductScreen(navController, productId)
         }
 
 
